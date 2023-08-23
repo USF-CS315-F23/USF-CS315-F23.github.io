@@ -6,7 +6,7 @@ nav_order: 1
 permalink: /:path/
 seo:
   type: Course
-  name: CS 315 Operating Systems Fall 2023
+  name: CS 315 Computer Architecture Fall 2023
 ---
 
 # CS 315 Operating Systems
