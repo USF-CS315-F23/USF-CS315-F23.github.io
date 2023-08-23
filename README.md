@@ -9,7 +9,7 @@ seo:
   name: CS 315 Computer Architecture Fall 2023
 ---
 
-# CS 315 Operating Systems
+# CS 315 Computer Architecture
 Spring 2023 &nbsp; &nbsp; &nbsp; &nbsp; [Sec 01 Zoom](Join Zoom Meeting
 https://usfca.zoom.us/j/83086960997)  &nbsp; &nbsp; [Sec 02 Zoom](https://usfca.zoom.us/j/83443279350)
 
