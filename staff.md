@@ -1,26 +1,26 @@
 ---
-layout: page
+layout: default
 title: Staff
-description: A listing of all the course staff members.
+nav_order: 2
+permalink: /staff
 ---
 
-# Staff
+# CS 315 Staff
 
-Staff information is stored in the `_staffers` directory and rendered according to the layout file, `_layouts/staffer.html`. Test.
+## Greg Benson (Instructor)
+- Office: HR 412A
+- Office Hour Zoom: [https://usfca.zoom.us/j/628537645](https://usfca.zoom.us/j/628537645)
+- Office Hours: Tue/Thu 1:30pm-2:20pm, Wed 3:40pm-4:30pm
+- Greg's office hours are in person and on Zoom unless otherwise announced
 
-## Instructors
+## Max Weidmer (TA)
+- Office: HR 411/413
+- Office Hour Zoom: [https://usfca.zoom.us/j/89646799850](https://usfca.zoom.us/j/86453869287)
+- Office Hours: Mon 2:00pm-4:00pm, Thu 6:30pm-7:30pm, Fri 5:00pm-7:00pm
+- Max's office hours are in person and on Zoom unless otherwise announced
 
-{% assign instructors = site.staffers | where: 'role', 'Instructor' %}
-{% for staffer in instructors %}
-{{ staffer }}
-{% endfor %}
-
-{% assign teaching_assistants = site.staffers | where: 'role', 'Teaching Assistant' %}
-{% assign num_teaching_assistants = teaching_assistants | size %}
-{% if num_teaching_assistants != 0 %}
-## Teaching Assistants
-
-{% for staffer in teaching_assistants %}
-{{ staffer }}
-{% endfor %}
-{% endif %}
+## Sahil Gupta (TA)
+- Office: HR 411/413
+- Office Hour Zoom: [https://usfca.zoom.us/j/82552711899](https://usfca.zoom.us/j/6669660132)
+- Office Hours: Mon 4:00pm-6:00pm, Wed 1:00pm-2:00pm, Fri 3:00pm-5:00pm
+- Sahil's office hours are in person and on Zoom unless otherwise announced
