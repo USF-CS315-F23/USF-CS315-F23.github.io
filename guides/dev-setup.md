@@ -401,6 +401,12 @@ sudo adduser <your_username>
 
 This will ask you for a password and your full name. You can leave the rest of the fields blank.
 
+If you do this and also want to have sudo (admin) access, which will be need to poweroff the vm, you need to do the following:
+
+```text
+sudo adduser <your_username> sudo
+```
+
 If you use the ubuntu user or if you created your own user, you can follow the ssh config instructions above to add your public key to the vm, then update your ssh config on your computer with a new entry for the local vm. For example here is what I use:
 
 ```text
@@ -435,6 +441,15 @@ Now you should be able to get into your local vm like this:
 ```text
 ssh riscv
 ```
+
+## Shutting down the local RISC-V vm
+
+When you are done working in your local vm you should shut it down cleanly:
+
+```text
+sudo poweroff
+```
+
 ## Setup ssh GitHub access
 
 On your computer, you can add the following to ```~/.ssh/config```:
