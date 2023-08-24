@@ -10,13 +10,13 @@ permalink: /guides/dev-setup
 
 ## Overview
 
-In this class we will be learning the RISC-V instruction set architecture. In order to do so we will work on emulated RISC-V hardware provided by Qemu. You will have two ways to access Linux running on a RISC-V virtual machine: you can access a virtual machine running on euryale.cs.usfca.edu and you can run the RISC-V virtual machine locally using Qemu. This guide will help you setup access to both the remote vm and a local vm.
+In this class we will be learning the RISC-V instruction set architecture. In order to do so we will work on emulated RISC-V hardware provided by Qemu (https://www.qemu.org/). You will have two ways to access Linux running on a RISC-V virtual machine: you can access a virtual machine running on ```euryale.cs.usfca.edu``` and you can run the RISC-V virtual machine locally using Qemu. This guide will help you set up access to both the remote vm and a local vm.
 
 ## Command Line
 
-We will be working extensively from the shell (commmand line) in this class. See the [Shell Usage Guide](/guides/shell-usage) for a quick overview of working from the shell.
+We will be working extensively from the shell (commmand line) in this class. See the [Shell Usage Guide](/guides/shell-usage) for an overview of working from the shell and common commands I frequently use.
 
-To access the command line in macOS you can use the Terminal application or iTerm (a popular third party terminal program that is very powerful).
+To access the command line in macOS you can use the Terminal application or iTerm (a popular third party terminal program that is very powerful, https://iterm2.com/).
 
 Linux also has a Terminal application for accessing the command line.
 
@@ -24,10 +24,11 @@ For Windows, I recommand you use Ubuntu Windows Subsystem for Linux (WSL):
 - [Ubuntu WSL](https://apps.microsoft.com/store/detail/ubuntu-22042-lts/9PN20MSR04DW?hl=en-us&gl=us&rtc=1)
 You can also get command line access with Gitbash, which comes with Git for Windows:
 - [Git for Windows](https://gitforwindows.org)
+- However, WSL will be better and easier for running the local RISC-V vm.
 
 ## ssh to stargate
 
-We will be using ssh to access our remote RISC-V vm as well as our local RISC-V vm. From outside the CS network, you can access CS machine from stargate (which is publically accessible). To get to stargate type:
+We will be using ssh to access our remote RISC-V vm as well as our local RISC-V vm. From outside the CS network, you can access CS machines from stargate (which is publically accessible). To get to stargate type:
 
 (Note, all the commands below should be entered at the shell prompt)
 
@@ -37,13 +38,13 @@ ssh <your_username>@stargate.cs.usfca.edu
 Be sure to replace ```<your_username>``` with your USF/CS username, for example, I would type:
 
 ```text
-ssh benson@stargate.cs.usfca.edu
+% ssh benson@stargate.cs.usfca.edu
 <You will see an ASCII art image and some informational text>
 Last login: Thu Aug 24 00:09:00 2023 from c-73-92-205-177.hsd1.ca.comcast.net
 [benson@stargate ~]$
 ```
 
-Your default password on stargate is your full 8 digit USF ID number (CWID). If you changed yoru password and have forgotten it please email CS Support to ask them to reset your password:
+Your default password on stargate is your full 8 digit USF ID number (CWID). If you changed your password and have forgotten it please email CS Support to ask them to reset your password on stargate:
 - ```support@cs.usfca.edu```
 
 If your password is still your default password, it is recommended that you change it with the ```passwd``` command:
@@ -54,7 +55,7 @@ passwd
 
 ## Set up ssh keys for stargate
 
-Typing your password every time you want to get to stargate will become annoying very quickly. You can set up ssh keys so that you don't have to type your password ever single time. We will also setup ssh keys to access euryale.cs.usfca.edu and our RISC-V vm.
+Typing your password every time you want to get to stargate will become annoying very quickly. You can set up ssh keys so that you don't have to type your password ever single time. Also, typing passwords is not as secure as using keys. We will also setup ssh keys to access euryale.cs.usfca.edu and our Ubuntu RISC-V vm.
 
 The basic idea is that we need to create a key pair that consists of a private key and a public key. We will put the public on the remote machines we want to access without typing a password.
 
@@ -175,8 +176,9 @@ I will explain which computer and which directory you should be using. A common 
   - To get your ssh to not ask for a pasword you should follow the answer to this post:
   - [https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login](https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login)
   - You will need to add text to your ```~/.bash_profile``` in Ubuntu WSL.
+  - After you do this you will need to exit the Ubuntu terminal and start a new one.
 
-## Accesing euryale.cs.usfca.edu
+## Accessing euryale.cs.usfca.edu
 
 If everything is set up properly you should also be able to ssh directly into euryale without a password:
 
@@ -207,7 +209,7 @@ Host euryale
   HostName euryale
   AddKeysToAgent yes
   ForwardAgent yes
-  IdentityFile ~/.ssh/id_ed25519_cs326_2023s
+  IdentityFile ~/.ssh/id_ed25519_cs315_2023f
   User <your_username>
   ProxyCommand ssh -W %h:%p stargate
 ```
@@ -220,7 +222,7 @@ This will allow you to type:
 ssh euryale
 ```
 
-On your computer connect directly to euryale without going to stargate first.
+On your computer you should now be able to  connect directly to euryale without going to stargate first.
 
 ## Accessing the Ubuntu RISC-V Virtual Machine on euryale
 
@@ -238,6 +240,14 @@ You should change your password (to say the same password you use for stargate):
 
 ```text
 passwd
+```
+
+Also, by default, your vm home directory does not have a ```.ssh``` directory, so we need to create it with proper permissions:
+
+```text
+cd
+mkdir .ssh
+chmod 700 .ssh
 ```
 
 Now that you can get to the RISC-V vm, let's configure your laptop so you can ssh directly to the vm without having to ssh to euryale first. Exit back to euryale:
@@ -284,11 +294,12 @@ Add the following text to ```~/.ssh/config```
 ```text
 Host euryalevm
   HostName localhost
+  Port 4444
   AddKeysToAgent yes
   ForwardAgent yes
-  IdentityFile ~/.ssh/id_ed25519_cs326_2023s
+  IdentityFile ~/.ssh/id_ed25519_cs315_2023f
   User <your_username>
-  ProxyCommand ssh -p 4444 -W %h:%p euryale
+  ProxyCommand ssh -W %h:%p euryale
 ```
 
 Once you do this, you should be able to ssh directly to the vm like this without typing a password:
@@ -336,6 +347,24 @@ brew install qemu
 
 You will have to exit your Terminal and start a new one for the PATH to be updated with the new qemu commands.
 
+### Install Qemu on Ubuntu/Ubuntu-WSL
+
+You may need to upgrade your Ubuntu installation first:
+
+```text
+sudo apt update
+sudo apt upgrade
+sudo apt full-upgrade
+```
+
+After all this, then install Qemu:
+
+```text
+sudo apt install qemu qemu-system-misc
+```
+
+### Run and configure your local RISC-V image
+
 Next, you need to download the Ubuntu RISC-V image I've created:
 
 ```text
@@ -369,11 +398,14 @@ Now, you can just use the ubuntu user if you want or you can create a new user w
 ```text
 sudo adduser <your_username>
 ```
+
+This will ask you for a password and your full name. You can leave the rest of the fields blank.
+
 If you use the ubuntu user or if you created your own user, you can follow the ssh config instructions above to add your public key to the vm, then update your ssh config on your computer with a new entry for the local vm. For example here is what I use:
 
 ```text
 Host riscv
-  HostName localhost
+  HostName 127.0.0.1
   Port 4444
   AddKeysToAgent yes
   ForwardAgent yes
