@@ -8,7 +8,9 @@ permalink: /_assignments/Project01
 
 # RISC-V Access and Number Conversion in C
 
-## Deliverables due Mon Aug 28 by 11:59pm in your Project01 GitHub repo
+## Deliverables due Tue Aug 29 by 11:59pm in your Project01 GitHub repo
+
+## Project01 will be interactively graded on Wed Aug 30
 
 ## Dev Environment Requirments
 
