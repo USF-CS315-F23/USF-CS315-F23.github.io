@@ -16,8 +16,11 @@ permalink: /_assignments/Project01
 2. You need to show you can run and access a Ubuntu RISC-V vm running on your computer using ssh without passwords.
 3. You need to show you can access GitHub using ssh keys for your repos inside the Ubuntu RISC-V vms.
 4. You need to show you can run the autograder in the Ubuntu RISC-V vms
-5. You need to show you can use a console-based editor like micro or vim (not nano)
+5. You need to show you can use a console-based editor like micro or vim (not nano).
+
+
 ## Number Conversion Requirements
+
 1. You will implement a base conversion tool called project01. It converts numbers expressed in bases 2, 10, and 16 into the other two bases. Examples:
 
     ```text    
