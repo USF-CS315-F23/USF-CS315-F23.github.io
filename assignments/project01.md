@@ -1,28 +1,39 @@
 ---
 layout: default
-title: Lab01
+title: Project01
 nav_order: 1
 parent: Assignments
-permalink: /_assignments/lab01
+permalink: /_assignments/Project01
 ---
 
-# Lab01 Number Conversion in C
+# RISC-V Access and Number Conversion in C
 
-## Requirements
-1. You will implement a base conversion tool called lab01. It converts numbers expressed in bases 2, 10, and 16 into the other two bases. Examples:
+## Deliverables due Mon Aug 28 by 11:59pm in your Project01 GitHub repo
 
-    $ ./lab01 10 -o 2
+## Dev Environment Requirments
+
+1. You need to show you can use ssh without passwords to access the euryale Ubuntu RISC-V vm.
+2. You need to show you can run and access a Ubuntu RISC-V vm running on your computer using ssh without passwords.
+3. You need to show you can access GitHub using ssh keys for your repos inside the Ubuntu RISC-V vms.
+4. You need to show you can run the autograder in the Ubuntu RISC-V vms
+5. You need to show you can use a console-based editor like micro or vim (not nano)
+## Number Conversion Requirements
+1. You will implement a base conversion tool called project01. It converts numbers expressed in bases 2, 10, and 16 into the other two bases. Examples:
+
+    ```text    
+    $ ./project01 10 -o 2
     0b1010
-    $ ./lab01 0xFF -o 10
+    $ ./project01 0xFF -o 10
     255
-    $ ./lab01 0b11011110101011011011111011101111 -o 16
+    $ ./project01 0b11011110101011011011111011101111 -o 16
     0xDEADBEEF
-    $ ./lab01 0b11111111111111111111111111111111 -o 10
+    $ ./project01 0b11111111111111111111111111111111 -o 10
     4294967295
-    $ ./lab01 0x0000000B -o 10
+    $ ./project01 0x0000000B -o 10
     11
-    $ ./lab01 0b123 -o 2
+    $ ./project01 0b123 -o 2
     Bad input
+    ```
 
 1. You must implement the base conversions yourself, without using C library `printf(%d)`, `printf("%x")`,  `scanf()`, or `atoi()`
 1. You must provide a `Makefile` which builds an executable called `lab01`
@@ -54,7 +65,8 @@ Pseudocode for `void int_to_string(uint32_t value, char *str, int base)`
 
 ## Rubric
 
-Points determined by lab01 autograder tests.
+50% Dev Env Setup
+50% Points determined by project01 autograder tests.
 
 Get autograder here:
 [https://github.com/phpeterson-usf/autograder](https://github.com/phpeterson-usf/autograder)
