@@ -6,6 +6,6 @@ has_children: true
 permalink: /guides/guides
 ---
 
-# Assignments
+# Guides
 
 {: .fs-6 .fw-300 }

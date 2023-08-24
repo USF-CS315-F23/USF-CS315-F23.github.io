@@ -18,12 +18,12 @@ tagline: Computer Architecture
 description: USFCS Undergraduate Computer Architecture
 author: Greg Benson
 baseurl: '/' # the subpath of your site, e.g. /blog
-url: 'https://usf-cs315-f23.github.io' # the base hostname & protocol for your site, e.g. http://example.com
+#url: 'https://usf-cs315-f23.github.io' # the base hostname & protocol for your site, e.g. http://example.com
+url: 'https://cs315-f23.cs.usfca.edu' # the base hostname & protocol for your site, e.g. http://example.com
+
 exclude: ["Gemfile", "Gemfile.lock", "LICENSE"]
 
 logo: "/assets/images/usfcs_logo.png"
-
-
 
 # Theme settings
 remote_theme: just-the-docs/just-the-docs@v0.4.0.rc4
