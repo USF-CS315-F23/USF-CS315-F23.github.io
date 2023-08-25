@@ -3,7 +3,7 @@ layout: default
 title: Project01
 nav_order: 2
 parent: Assignments
-permalink: /assignments/Project01
+permalink: /assignments/project01
 ---
 
 # RISC-V Access and Number Conversion in C

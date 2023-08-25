@@ -17,7 +17,8 @@ Sec02 - [Recording](/),
 
 Thu, Aug 25
 : **Lec**{: .label .label-green } Dev Setup and C Programming
-: [Project01](/assignments/Project01)
+  [Lab01](/assignments/lab01)
+: [Project01](/assignments/project01)
 : Sec01 - [Recording](/),
           [iPad Notes](/)
 &nbsp; &nbsp;

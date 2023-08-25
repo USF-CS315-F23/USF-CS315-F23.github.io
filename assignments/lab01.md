@@ -3,7 +3,7 @@ layout: default
 title: Lab01
 nav_order: 1
 parent: Assignments
-permalink: /assignments/Lab01
+permalink: /assignments/lab01
 ---
 
 # Hello World in the RISC-V Development Environment
