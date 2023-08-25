@@ -17,7 +17,7 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/Getp4u84AupAboSHFsRpwRnRsaTx
 
 Thu, Aug 25
 : **Lec**{: .label .label-green } Dev Setup and C Programming
-  [Lab01](/assignments/lab01)
+:  [Lab01](/assignments/lab01)
 : [Project01](/assignments/project01)
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/vSS8TdJVy9mx2E0EUTuiydh8iLNIKvz4csuxxn6Ryy3Pz7NbU-IxOUi5D3lo6PWy.SwpuSp3KmwAjpEyU?startTime=1692889386000),
           [iPad Notes](/notes/CS315-01 2023-08-24 Dev Setup C Programming.pdf)
