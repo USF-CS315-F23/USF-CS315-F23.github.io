@@ -1,16 +1,16 @@
 ---
 layout: default
 title: Project01
-nav_order: 1
+nav_order: 2
 parent: Assignments
 permalink: /assignments/Project01
 ---
 
 # RISC-V Access and Number Conversion in C
 
-## Deliverables due Tue Aug 5th by 11:59pm in your Project01 GitHub repo
+## Deliverables due Tue Sep 5th by 11:59pm in your Project01 GitHub repo
 
-## Project01 will be interactively graded on Wed Aug 6th
+## Project01 will be interactively graded on Wed Sep 6th
 
 ## Dev Environment Requirments
 
