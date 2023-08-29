@@ -11,7 +11,7 @@ permalink: /guides/shell-usage
 We will be working extensively from the shell (commmand line) in this class. As such it is important that you become both familiar and comfortable working from the command line. Here are some basic concepts:
 
 - You access the command line through a terminal program such as Terminal or iTerm on macOS and WSL Ubuntu Linux or Gitbash (installed from GitHub) on Windows.
-- The shell prompt usually ends with a ```$``` (```sh``` or ```bash```) or ```%``` (```zsh```). After the promp is where you can type your commands. Here are two prompts, the first from zsh on macOS and the second from bash on Linux:
+- The shell prompt usually ends with a ```$``` (```sh``` or ```bash```) or ```%``` (```zsh```). After the prompt is where you can type your commands. Here are two prompts, the first from zsh on macOS and the second from bash on Linux:
   - ```benson@m2a ~ %```
   - ```[benson@stargate ~]$```
 - After the prompt you can type a command.
@@ -19,7 +19,7 @@ We will be working extensively from the shell (commmand line) in this class. As 
 - The ```ls``` command is used to list the contents of a diretory:
   - ```ls``` with no arguments lists  the contents of the current direcory
   - ```ls <path>``` will list the contens of the directory specified by <path>
-  - ```ls -al``` will show a detailed listing of files and all files, including those that start with a period ".".
+  - ```ls -al``` will show a detailed listing of files and all files, including those that start with a period ".". This is useful for seeing file permissions, size, and modification time.
 - Commands that exist in the file system are found using the ```PATH``` environment variable.
 - You can see the value of ```PATH``` like this:
   ```text
@@ -38,7 +38,7 @@ We will be working extensively from the shell (commmand line) in this class. As 
   $ pwd
   /Users/benson
   ```
-- The ```~``` in a path is expanded to your home directory.
+- The ```~``` in a path is expanded to your home directory (e.g., /home/benson).
 - To change to a directory use the ```cd``` command:
   - ```cd``` with no arguments returns you to your home directory
   - ```cd <path>``` takes you to <path>, were <path> can be absolute, like ```cd /home/benson```, or relative, like ```cd project01```
@@ -64,4 +64,17 @@ We will be working extensively from the shell (commmand line) in this class. As 
    $ cat foo.txt >> bar.txt
    ```
    - This will add the context of ```foo.txt``` to the end of ```bar.txt```
- 
+ - To save on typing on the command line you can create shell aliases
+   - For bash, put aliases in ```~/.bash_aliases```
+   - For zsh, put aliases in ```~/.zshrc```
+ - Here are some example aliases
+   ```text
+   $ cat .bash_aliases
+   alias lsa='ls -al'
+   alias m='micro'
+   alias p3='python3'
+   alias sg='ssh stargate'
+   alias ey='ssh euryale'
+   alias eyvm='ssh euryalevm'
+   ```
+   - You will need to restart your terminal to have the changes take effect.
