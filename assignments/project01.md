@@ -41,7 +41,7 @@ permalink: /assignments/project01
     ```
 
 1. You must implement the base conversions yourself, without using C library `printf(%d)`, `printf("%x")`,  `scanf()`, or `atoi()`
-1. You must provide a `Makefile` which builds an executable called `lab01`
+1. You must provide a `Makefile` which builds an executable called `project01`
 
 ## Given
 We will review processing command line arguments in C
