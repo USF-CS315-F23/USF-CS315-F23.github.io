@@ -274,7 +274,7 @@ Add your public key to your ```~/.ssh/authorized_keys```:
 
 ```text
 cd .ssh
-cat id_ed25519_cs315_2023f.pub > authorized_keys
+cat id_ed25519_cs315_2023f.pub >> authorized_keys
 ```
 
 After you do this, you can exit back to euryale and you should be able to ssh back to the vm without typing your password:
