@@ -71,6 +71,10 @@ To find additional occurrences of the searched text, press `Ctrl + N`. Micro wil
 move the cursor to the next occurrence. You can continue pressing `Ctrl + N` to
 cycle through all the occurrences.
 
+## Replacing Text
+
+You can do simple text replacement by using the micro `replace` command. You need to enter command mode `CTRL + e` (or `ALT/OPTION + e`, see below). This will prompt you to enter the string you want to replace followed by a space and the new string. If the string your want to replace or the new string has spaces in them, you can use double quotes `"` around the string. Press `RETURN` then micro will ask you to confirm each replacement.
+
 
 ## Indenting a Region
 
