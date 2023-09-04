@@ -50,6 +50,8 @@ Pseudocode for `uint32_t string_to_int(char *str)`
 
     init retval to 0
     init placeval to 1 (anything to the 0 power is 1)
+    determine the base of the str by looking at first two chars
+        `0b` means base is 2, `0x` means base is 16, otherwise base is 10
     loop over str from the highest index down to 0
         calculate the integer corresponding to the character at that index	
         calculate the value of that place by multiplying the integer * placeval
