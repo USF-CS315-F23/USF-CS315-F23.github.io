@@ -19,7 +19,7 @@ Autograder: [https://github.com/phpeterson-usf/autograder](https://github.com/ph
 
 ## Requirements
 
-1. You will develop C and RISC-V assembly language implementations of the following arithmetic problems. 
+1. You will develop RISC-V assembly language implementations of the following arithmetic problems. You will be given the C implementations, you need to write the RISC-V implementations. 
 1. Your executable must be compiled with a Makefile
 1. Before you add files to your repo, do a `$ make clean` so you don't add/commit build products like executables or .o files
 1. We will test the labs using autograder
