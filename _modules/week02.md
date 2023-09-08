@@ -19,7 +19,7 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/aHCO2GfGicCfVRbB1W7-m4Z-R8iG
         [iPad Notes](/notes/CS315-02 2023-08-30 Lab C Lab01.pdf)
 
 Thu, Aug 31
-: **Lec**{: .label .label-green } RISC-V Assembly
+: **Lec**{: .label .label-green } C Args - Bases and Base Conversion
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/34lRnqX53jNrsBTOnlDQepVN4XiEtVwbOZ-yGp0UHPvA5FHapcerfl-N0nyT52ob.FYaCKdwgz9n2Ko33?startTime=1693494238000),
           [iPad Notes](/notes/CS315-01 2023-08-31 Args Numbers.pdf)
 &nbsp; &nbsp;

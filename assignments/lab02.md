@@ -8,7 +8,7 @@ permalink: /assignments/lab02
 
 # Introduction to RISC-V Assembly Programming
 
-## Deliverables due Mon Sep 1th by 11:59pm in your Lab02 GitHub repo
+## Deliverables due Mon Sep 11th by 11:59pm in your Lab02 GitHub repo
 
 ## Links
 
@@ -54,7 +54,9 @@ The Lab02 GitHub repo will contain starter code including a Makefile, the C vers
 
 ## Exam Like Problems
 
-TBA
+### Question 1 - Hex to Decimal
+
+
 
 ## Rubric
 
