@@ -12,6 +12,8 @@ permalink: /assignments/project02
 
 Note: Project02 will be graded offline (not interactively)
 
+## Exam problems due Wed Sep 20th by 11:59pm in your Project02 GitHub repo
+
 ## Requirements
 
 1. You will develop RISC-V assembly language implementations of the following problems, and print the results to ensure that both the C implementation and your RISC-V implementation compute the correct answer.
@@ -56,6 +58,44 @@ Given the address of an array of unsigned integers, and the length of the array,
 1. Test cases are available in [https://github.com/USF-CS315-F23/tests](https://github.com/USF-CS315-F23/tests)
 
 ## Exam-like Problems
+
+Put the solutions to the following problem in a file called `problems.pdf` in your Lab02 GitHub Repo. You can typeset your solutions or you can write your solutions by hand and scan or take a photo of your work. Just be sure to put your solution in a single file called `problems.pdf`.
+
+### Question 1 - RISC-V Snippet 1
+
+Assume `a0 = 1`, `a1 = 2`, and `a2 = 3`. What is teh value of `a2` after executing this snippet:
+
+    add a0, a0, a0
+    add a1, a1, a2
+    mul a2, a1, a0
+
+### Question 2 - RISC-V Snippet 2
+
+Assume `a0 = 0`, `a1 = 3`. What is the value of a0 after executing this snippet?
+
+        addi a0, a0, 1
+        j boo
+    foo:
+        addi a0, a0, a1
+        j goo
+    boo:
+        addi a0, a0, 2
+        beq a0, a1, foo
+    goo:
+        addi a0, a0, 1
+
+### Question 3 - RISC-V Snippet 3
+
+Assume `a0 = 0`, `a1 = 2`, and `a2 = 0`. What is the value of a0 after executing this snippet? How many instructions are executing in the snippet below? Note that labels such as `loop:` and `loopend:` do not count as instructions. Also assum beq counts as one instruction whether or not the branch is taken.
+
+        li a3, 0
+    loop:
+        beq a1, a2, loopend
+        add a3, a3, a1
+        addi a1, a1, -1
+        j loop
+    loopend:
+        mv a0, a3
 
 ## Rubric
 

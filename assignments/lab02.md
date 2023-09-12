@@ -8,7 +8,8 @@ permalink: /assignments/lab02
 
 # Introduction to RISC-V Assembly Programming
 
-## Deliverables due Mon Sep 11th by 11:59pm in your Lab02 GitHub repo
+## Code due Mon Sep 11th by 11:59pm in your Lab02 GitHub repo
+## Exam problems due Thu Sep 14th by 11:59pm in your Lab02 GitHub repo
 
 ## Links
 
@@ -52,11 +53,35 @@ Autograder: [https://github.com/phpeterson-usf/autograder](https://github.com/ph
 
 The Lab02 GitHub repo will contain starter code including a Makefile, the C versions of the functions above, and empty `.s` files for you to fill in.
 
-## Exam Like Problems
+## Exam-like Problems
+
+Put the solutions to the following problem in a file called `problems.pdf` in your Lab02 GitHub Repo. You can typeset your solutions or you can write your solutions by hand and scan or take a photo of your work. Just be sure to put your solution in a single file called `problems.pdf`.
 
 ### Question 1 - Hex to Decimal
 
+Convert the hexadecimal number `0x3FA` to decimal. Show your work.
 
+### Question 2 - Binary to Decimal
+
+Convert the binary number `0b10110` to decimal. Show your work.
+
+### Question 3 - Decimal to Binary
+
+Convert the decimal number `231` to binary. Show your work.
+
+### Question 4 - Bad string_to_int()
+
+Consider the following incorrect implementation of `string_to_int()`:
+
+    int string_to_int(char *s) {
+        int result = 0;
+        for (int i = 0; s[i] != '\0'; i++) {
+            result = result * 10 + s[i];
+        }
+        return result;
+    }
+
+This function is supposed to convert a string of digits into an integer. However, it does not work as expected. Identify and explain the problem with this code. Show the corrected version.
 
 ## Rubric
 
