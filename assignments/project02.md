@@ -52,6 +52,16 @@ Given the address of an array of unsigned integers, and the length of the array,
     C: 10 20 30
     Asm: 10 20 30
 
+**fibrec:** Recursive Fibonacci number generator. Examples:
+
+    $ ./fib_rec 10
+    C: 55
+    Asm: 55
+
+    $ ./fib_rec 20
+    C: 6765
+    Asm: 6765
+
 ## Given
 
 1. The starter repo contains C implementations for each of the programs
