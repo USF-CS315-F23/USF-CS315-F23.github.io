@@ -1,22 +1,25 @@
 ---
-layout: assignment
-due: 2023-02-13 23:59:59 -0800
-github_url: https://classroom.github.com/a/r30Znktv
+layout: default
+title: Project02
+nav_order: 4
+parent: Assignments
+permalink: /assignments/project02
 ---
+
+# RISC-V Assembly Language
+
+## Due Mon Sep 18th by 11:59pm in your Project02 GitHub repo
+
+Note: Project02 will be graded offline (not interactively)
 
 ## Requirements
 
 1. You will develop RISC-V assembly language implementations of the following problems, and print the results to ensure that both the C implementation and your RISC-V implementation compute the correct answer.
 1. Your executables must be named as follows, and must be compiled with a `Makefile`
 1. We will test your projects using autograder
+1. Note that in all your programs below you must follow the RISC-V function calling conventions that we cover in class.
+1. Remeber to remove the line `# YOUR CODE HERE` from the starter code.
 
-**to_upper**
-
-Given a string of upper, lower, and non-alphanumeric characters, transform lowercase letters into uppercase letters.
-
-    $ ./to_upper FooBar1
-    C: FOOBAR1
-    Asm: FOOBAR1
 
 **max3**
 
@@ -26,32 +29,42 @@ Given three signed integer parameters, find the largest by comparing the first t
     C: 6
     Asm: 6
 
-**find_max_index**
+**swap**
 
-Given an array of integers, return the index of the largest integer in the array
+Given an array of integers, swap element at index i with the element at index j:
 
-    $ ./find_max_index 5 4 3 2 1
-    C: 0
-    Asm: 0
-    $./find_max_index 1 2 3 4 5
-    C: 4
-    Asm: 4
+    ./swap <i> <j> <a0> <a1> <a2> ...
+
+    $ ./swap 0 1 5 4 3 2 1
+    C: 4 5 3 2 1
+    Asm: 4 5 3 2 1
+    ./swap 4 3 11 22 33 55 66 77
+    C: 11 22 33 66 55 77
+    Asm: 11 22 33 66 55 77
 
 **sort**
 
-Given the address of an array of unsigned integers, and the length of the array, sort the input array descending (largest to smallest) in place given the C implementation of the sorting algorithm. Your `sort_s` implementation must use `find_max_index_s`
+Given the address of an array of unsigned integers, and the length of the array, sort the input array in increasing order (largest to smallest) in place using the given C implementation of insertion sort. Your `sort_s` implementation must call `swap_s`.
 
     $ ./sort 10 30 20
-    C: 30 20 10
-    Asm: 30 20 10
+    C: 10 20 30
+    Asm: 10 20 30
 
 ## Given
 
 1. The starter repo contains C implementations for each of the programs
-1. Test cases are available in [https://github.com/cs315-s23/tests](https://github.com/cs315-s23/tests)
+1. Test cases are available in [https://github.com/USF-CS315-F23/tests](https://github.com/USF-CS315-F23/tests)
+
+## Exam-like Problems
 
 ## Rubric
 
 1. 80 points: automated test cases
-1. 5 points: clean repo (no build products) which compiles and links successfully
-1. 15 points: code quality: consistent formatting, no dead or redundant code, no unnecessarily complex code, readable comments
+1. 20 points: exam-like problems
+
+## Code quality
+
+Points will be deduction if you repo is not clean, that if it contains build artifacts like executables or `.o` files.
+
+Just like with C code, make sure that you format you Assembly code consistently. Use consistent eindentation (spaces not tabs), consistent label formatting, and consistent use of newlines. Points will be deducted for any code quality issues, but any points deducted can be earned back.
+
