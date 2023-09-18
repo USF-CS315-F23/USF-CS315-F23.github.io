@@ -116,5 +116,5 @@ Assume `a0 = 0`, `a1 = 2`, and `a2 = 0`. What is the value of a0 after executing
 
 Points will be deduction if you repo is not clean, that if it contains build artifacts like executables or `.o` files.
 
-Just like with C code, make sure that you format you Assembly code consistently. Use consistent eindentation (spaces not tabs), consistent label formatting, and consistent use of newlines. Points will be deducted for any code quality issues, but any points deducted can be earned back.
+Just like with C code, make sure that you format you Assembly code consistently. Use consistent indentation (spaces not tabs), consistent label formatting, and consistent use of newlines. Points will be deducted for any code quality issues, but any points deducted can be earned back.
 
