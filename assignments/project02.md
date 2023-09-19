@@ -69,7 +69,7 @@ Given the address of an array of unsigned integers, and the length of the array,
 
 ## Exam-like Problems
 
-Put the solutions to the following problem in a file called `problems.pdf` in your Lab02 GitHub Repo. You can typeset your solutions or you can write your solutions by hand and scan or take a photo of your work. Just be sure to put your solution in a single file called `problems.pdf`.
+Put the solutions to the following problem in a file called `problems.pdf` in your Project02 GitHub Repo. You can typeset your solutions or you can write your solutions by hand and scan or take a photo of your work. Just be sure to put your solution in a single file called `problems.pdf`.
 
 ### Question 1 - RISC-V Snippet 1
 
