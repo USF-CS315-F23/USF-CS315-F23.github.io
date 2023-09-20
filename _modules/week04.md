@@ -22,6 +22,7 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/bhvoRq8oBiz4c2OeGSuXXgUoRDW6
         [iPad Notes](/notes/CS315-02 2023-09-13 Lab RISC-V Full Functions.pdf)
 
 Thu, Sep 14
+: **Lab02 Exam Problems due**{: .label .label-red } 11:59pm
 : **Lec**{: .label .label-green } RISC-V Assembly - recusion
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/Xy8Hbw088kCxqntahY3m03qC42nve-212dpb2_q4jI_pGjV28zsIdq7AoPKnlQBX.g4QgD7q0FywWt3dD?startTime=1694704025000),
           [iPad Notes](/notes/CS315-01 2023-09-14 RISC-V Recursion.pdf)
