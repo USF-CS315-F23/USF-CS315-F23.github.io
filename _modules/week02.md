@@ -11,6 +11,7 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/vueYzqHKaXEvRonv078uDCcAe4-0
         [iPad Notes](/notes/CS315-01 2023-08-29 C Programming.pdf)
 
 Wed, Aug 30
+: **Lab01 due**{: .label .label-red } 11:59pm
 : **Lab**{: .label .label-purple } C Programming Exercises
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/a6LfsydqXHxbDsH5ojNTlPDVkX1CgkkEtAhbfMhsLfIPYz5hVBKnc9Vk9xnxmHrf.GLj2WfIX58vRJx-_?startTime=1693439747000),
           [iPad Notes](/notes/CS315-01 2023-08-30 Lab C Lab01.pdf)

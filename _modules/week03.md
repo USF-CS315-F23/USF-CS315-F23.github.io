@@ -3,6 +3,7 @@ title: Week03
 ---
 
 Tue, Sep 5
+: **Project01 due**{: .label .label-red } 11:59pm
 : **Lec**{: .label .label-green } Project01 and RISC-V Assembly Introduction
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/MgpKkZJeBvGpPPVMfwFSWMs3SPXLzAF2xU6IGL-FmMBNQ58a5wFPS18B19B3LaQC.hUgXWs4nHiY2qoht?startTime=1693926349000),
           [iPad Notes](/notes/CS315-01 2023-09-05 Project01 RISCV Assembly.pdf)
