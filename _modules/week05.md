@@ -16,11 +16,11 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/NjZ_xJ0evuKpWcu-I0rKvmnZI-ok
 Wed, Sep 13
 : **Project02 Exam Problems due**{: .label .label-red } 11:59pm
 : **Lab**{: .label .label-purple } RISC-V Assembly - bit manipulation
-: Sec01 - [Recording](),
-          [iPad Notes]()
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/BbzfKJQj9SM5wM1LgSUiWIkZa84-0tB6AN8aoXLA7oCqpc6xaoLLULgPPtgef0UD.enH3tMIrR3hiO9yL?startTime=1695253759000),
+          [iPad Notes](/notes/CS315-01 2023-09-20 Lab Bits.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](),
-        [iPad Notes]()
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/-WYkgzV2fXjrkmUgDEHSVAnWSHvMGE50BdMSejU1K6cetueAO4cXQXhAD7MTcJqB.0xKuYyBXqZQD4TRU?startTime=1695259777000),
+        [iPad Notes](/notes/CS315-02 2023-09-20 Lab Bits.pdf)
 
 Thu, Sep 14
 : **Lec**{: .label .label-green } RISC-V Assembly - Project03 - parsing/eval
