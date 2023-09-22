@@ -25,7 +25,7 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/-WYkgzV2fXjrkmUgDEHSVAnWSHvM
 Thu, Sep 14
 : **Lec**{: .label .label-green } RISC-V Assembly - Project03 - SRA
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/LRr0kJt5HNfkjvAbSPBvfuj83RFSCgEyuFMCS7xfIEqLAJfWOdam5A_lpsvRyN_I.LVxBpikHZru-TD_Z?startTime=1695308937000),
-          [iPad Notes](/files/CS315-01 2023-09-21 Project03 SRA.pdf)
+          [iPad Notes](/notes/CS315-01 2023-09-21 Project03 SRA.pdf)
 &nbsp; &nbsp;
 Sec02 - [Recording](https://usfca.zoom.us/rec/share/XaXYCtKvWVMAzpuEBr-tQ3CFUvtUGeqF0EIIFdFXZmzuDGMzXvKYyKUiAks0HrYu.dBeBMzQkBtdihPSY?startTime=1695332949000),
-        [iPad Notes](/files/CS315-02 2023-09-21 Project03 SRA.pdf)
+        [iPad Notes](/notes/CS315-02 2023-09-21 Project03 SRA.pdf)
