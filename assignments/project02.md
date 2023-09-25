@@ -73,7 +73,7 @@ Put the solutions to the following problem in a file called `problems.pdf` in yo
 
 ### Question 1 - RISC-V Snippet 1
 
-Assume `a0 = 1`, `a1 = 2`, and `a2 = 3`. What is teh value of `a2` after executing this snippet:
+Assume `a0 = 1`, `a1 = 2`, and `a2 = 3`. What is the value of `a2` after executing this snippet:
 
     add a0, a0, a0
     add a1, a1, a2
