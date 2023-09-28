@@ -14,7 +14,7 @@ Wed, Sep 27
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/GDxZikxIySGPzTlbwTt8FT43l6dxhRHo05Yqv8gX1jnxcyvcjWm5uJdfivQa1gIk.Wh7zfyYbofVRYUWQ?startTime=1695858784000),
           [iPad Notes](/notes/CS315-01 2023-09-27 Lab RISC-V Machine Code.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](),
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/qwBRbvm8DWIfmh2WRBLBYZVP5WHJPJZwpTONH_R54wBFc6i5hMI-Ej6j6FJYh9Q.9fi9IChyptL84wJb?startTime=1695864658000),
         [iPad Notes](/notes/CS315-02 2023-09-27 Lab RISC-V Machine Code.pdf)
 
 Thu, Sep 28
