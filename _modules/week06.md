@@ -18,7 +18,7 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/qwBRbvm8DWIfmh2WRBLBYZVP5WHJ
         [iPad Notes](/notes/CS315-02 2023-09-27 Lab RISC-V Machine Code.pdf)
 
 Thu, Sep 28
-: **Lec**{: .label .label-green } RISC-V Emulation - r,i,s,b,u,j types
+: **Lec**{: .label .label-green } RISC-V Emulation
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/YhJTJVOkCKXqp5PTl1_Z5nAFcJfsVyk_Zgf_9xtM8G6FogI9Fs91ybPRyGBn0TdE.52CRu9ojId4Sjk5W?startTime=1695913642000),
           [iPad Notes](/notes/CS315-01 2023-09-28 RISC-V Emulation.pdf)
 &nbsp; &nbsp;
