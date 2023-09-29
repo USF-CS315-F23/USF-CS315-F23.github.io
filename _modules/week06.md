@@ -19,8 +19,8 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/qwBRbvm8DWIfmh2WRBLBYZVP5WHJ
 
 Thu, Sep 28
 : **Lec**{: .label .label-green } RISC-V Emulation - r,i,s,b,u,j types
-: Sec01 - [Recording](),
-          [iPad Notes]()
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/YhJTJVOkCKXqp5PTl1_Z5nAFcJfsVyk_Zgf_9xtM8G6FogI9Fs91ybPRyGBn0TdE.52CRu9ojId4Sjk5W?startTime=1695913642000),
+          [iPad Notes](/notes/CS315-01 2023-09-28 RISC-V Emulation.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](),
-        [iPad Notes]()
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/DHb-XxcirVCWAXoZiBaWF2YmXlN40F9wwF1oKSJRoMsgbtu3nrCxFF4WEdAiiCL-.LFrEB2SyPfE7fuA-?startTime=1695937633000),
+        [iPad Notes](/notes/CS315-02 2023-09-28 RISC-V Emulation.pdf)
