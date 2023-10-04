@@ -130,7 +130,114 @@ Given a 32-bit unsigned integer, extract a sequence of bits and return as a sign
 
 Put the solutions to the following problems in a file called `problems.pdf` in your Project03 GitHub Repo. You can typeset your solutions or you can write your solutions by hand and scan or take a photo of your work. Just be sure to put your solution in a single file called `problems.pdf`.
 
-**TBD**
+### Question 1 - RISC-V Assembly
+
+Consider the following RISC-V assembly code, then answer the following questions.
+
+```text
+.global swap_s
+.global sort_s
+
+/* sort_s sorts an array of 32-bit integers in-place,
+   in asceding order
+
+   a0 - int arr[]
+   a1 - int len
+
+   t0 - int i;
+   t1 - int j;
+
+*/
+
+sort_s:
+    addi sp, sp, -64
+    sd ra, (sp)
+    li t0, 1
+
+floop:
+    bge t0, a1, fdone
+    mv t1, t0
+
+wloop:
+    ble t1, zero, wdone
+    li t3, 4
+    mul t4, t1, t3
+    add t5, a0, t4
+    addi t6, t5, -4
+    lw t5, (t5)
+    lw t6, (t6)
+    ble t6, t5, wdone
+
+    sd a0, 8(sp)
+    sd a1, 16(sp)
+    sd t0, 24(sp)
+    sd t1, 32(sp)
+
+    mv a1, t1
+    addi a2, t1, -1
+    call swap_s
+
+    ld a0, 8(sp)
+    ld a1, 16(sp)
+    ld t0, 24(sp)
+    ld t1, 32(sp)
+
+    addi t1, t1, -1
+    j wloop
+
+wdone:
+    addi t0, t0, 1
+    j floop
+
+fdone:
+    ld ra, (sp)
+    add sp, sp, 64
+    ret
+```
+
+Which caller-saved registers are preserved in this function, if any?
+
+Which callee-saved registers are preserved in this function, if any?
+
+Are there caller-saved registers that are used but not preserved? If so, why is this okay?
+
+How many bytes of the stack are actually used by this function?
+
+Does this function use pointer-based array access or indexed-based array access?
+
+
+### Question 2 - C to Assembly
+
+Consider the following C function. Provide and English description of what this function does and provide the RISC-V implementation of this function.
+
+```text
+int count_rec_c(char *str, char c) {
+    int addval = 0;
+
+    if (str[0] == '\0') {
+        return 0;
+    } else {
+        if (str[0] == c) {
+            addval = 1;
+        }
+        return addval + count_rec_c(&str[1], c);
+    }
+}
+
+```
+
+### Question 3 - RISC-V Machine Code
+
+Lets assume that we have a new RISC-V instruction format called the `x-type`:
+
+```text
+ 31                 20 19       15 14    12 11       7 6       0
+|   imm[5:0|11:6]     |    rs1    | funct3 |    rd    |  opcode |
+```
+
+Assume you have this instruction word in a C `uint32_t` variable called `iw`. Write a C code snippet that can construct the a 32 bit signed immediate value from `iw`, which is a `int32_t` type called `imm`. Your code snippet should just use C variables and expressions, no function calls. You cannot use `get_bits()` or `sign_extend()`.
+
+
 
 ## Rubric
 
