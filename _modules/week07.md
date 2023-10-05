@@ -12,11 +12,11 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/YIUCbyZkZ7Hg3LCDl2_doWfpafzP
 
 Wed, Oct 4
 : **Lab**{: .label .label-purple } RISC-V Emulation Analysis - Cache
-: Sec01 - [Recording](),
-          [iPad Notes]()
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/7d5SZ5a9fgwh6I_o3InjLeknX7gBVGAH2ugPC5h9pKkAofZgI-rImCAzpcF9h87m.jXuW2kLPhRtzefVC?startTime=1696464117000),
+          [iPad Notes](/notes/CS315-01 2023-10-04 Lab Lab03 Sol Analysis Cache.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](),
-        [iPad Notes]()
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/NSKjPdWpNwUXiE6HITyRBOIEcx1E2FFc-JqFKeZTHS1hvit0avO32ux9Ck7JAYMt.QiWAXftDXS4OBNam?startTime=1696469533000),
+        [iPad Notes](/notes/CS315-02 2023-10-04 Lab Lab03 Sol Analysis Cache.pdf)
 
 Thu, Oct 5
 : **Lec**{: .label .label-green } RISC-V Emulation Cache Simulation
