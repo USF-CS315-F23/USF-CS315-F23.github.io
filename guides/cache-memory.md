@@ -7,10 +7,10 @@ permalink: /guides/cache-memory
 ---
 
 ## Overview
-In Computer Science, a cache is construct that is used to speed up access to data. Often data, is stored somewhere, say in memory, on the disk, or in a database. To keep the costs of large storage reasonable, access time to the data is slower than what it could be if a more expensive technology was used for the data storage. A cache is designed to be much smaller than the primary data storage, but uses more expensive technology to make access fast. A cache will keep recently accessed data so that future requests for the data are served quickly. Caches can be very effective if the access pattern to data favors recently requested data items and also data items that are physically near one and other. While we are going to focus on cache memory found in computer processors, caches are widely used in other areas of computer systems including operating system kernels, databases, and cloud computing. This guide will explain cache memory concepts and look at three types of cache memory structures: direct mapped, fully associative, and set associative.
+In Computer Science, a cache is construct that is used to speed up access to data. Often data is stored somewhere, say in memory, on the disk, or in a database. To keep the costs of large storage reasonable, access time to the data is slower than what it could be if a more expensive technology was used for the data storage. A cache is designed to be much smaller than the primary data storage, but uses more expensive technology to make access fast. A cache will keep recently accessed data so that future requests for the data are served quickly. Caches can be very effective if the access pattern to data favors recently requested data items and also data items that are physically near one and other. While we are going to focus on cache memory found in computer processors, caches are widely used in other areas of computer systems, including operating system kernels, databases, and cloud computing. This guide will explain cache memory concepts and look at three types of cache memory structures: direct mapped, fully associative, and set associative.
 
 ## Cache Memory Concepts
-Processors need to access data that resides in memory. This memory is sometimes called main memory or RAM. When we execute programs, the memory consists of instructions, global data, heap data, and stack data. A RISC-V processor uses the PC (program counter) register to point to the next instruction in memory to execute. Executing programs use load and store instructions to access data in memory, such as ld, sd, lw, and sw. The purpose of cache memory is speed up access to main memory by holding recently used data in the cache. A cache can hold either data (called a D-Cache), instructions, (called an I-Cache), or both (called a Unified Cache).
+Processors need to access data that resides in memory. This memory is sometimes called main memory or RAM. When we execute programs, the memory consists of instructions, global data, heap data, and stack data. A RISC-V processor uses the PC (program counter) register to point to the next instruction in memory to execute. Executing programs use load and store instructions to access data in memory, such as ld, sd, lw, and sw. The purpose of cache memory is to speed up access to main memory by holding recently used data in the cache. A cache can hold either data (called a D-Cache), instructions, (called an I-Cache), or both (called a Unified Cache).
 
 A cache memory will take an address as input and decide if the data associated with the address is in the cache. If the data is in the cache, we call this a **hit**, and the data can be returned immediately without going to main memory. If the data associated with the address is not in the cache, we call this a **miss**. Each time the processor requests data from the cache, we call this a memory reference, or ref. We can keep track of each of these metrics during the use of a cache. If we do this, we can then compute two important values: the **hit rate** and the **miss rate**. We compute these values as follows:
 
@@ -24,7 +24,7 @@ hit_rate = 1 - (miss_rate)
 miss_rate =  1 - (hit_rate)
 ```
 
-Our goal is to build caches that achieve high hit rates. In fact, cache memories are wildly successful and can achieve extremely high hit rates in practice, e.g., greater than 97% for many types of programs. The reason for this is that executing code adheres to principles of locality: the **principle of temporal locality** and the **principle of spatial locality**. The principle of temporal locality states that if a data element is accessed, there is a good chance it will be accessed again in the near future. Think about an array index (i). If we have a loop with many iterations, the array index will need to be accessed on each iteration. Similarly, if we call a function in the loop, the code for that function will be accessed each time through the loop. The same can be said for recursive functions. The principle of spatial locality states that if a data element is accessed, there is a good chance a close neighbor of the data element will be access in the near future. Traversing an array in a loop is a good example. If we access array[i] there is a good chance will access array[i+1]. Code also exhibits a high degree of spatial locality. If we execute an instruction at the current PC, there is a good chance we will execute instruction at PC + 4 (the next instruction) unless the instruction at PC is a branch or jump. Spatial locality suggests that when we access a data element we should also load some of that data elements neighbors into the cache at the same time reduce the latency of going to main memory for smaller data element access.
+Our goal is to build caches that achieve high hit rates. In fact, cache memories are wildly successful and can achieve extremely high hit rates in practice, e.g., greater than 97% for many types of programs. The reason for this is that executing code adheres to principles of locality: the **principle of temporal locality** and the **principle of spatial locality**. The principle of temporal locality states that if a data element is accessed, there is a good chance it will be accessed again in the near future. Think about an array index (i). If we have a loop with many iterations, the array index will need to be accessed on each iteration. Similarly, if we call a function in the loop, the code for that function will be accessed each time through the loop. The same can be said for recursive functions. The principle of spatial locality states that if a data element is accessed, there is a good chance a close neighbor of the data element will be access in the near future. Traversing an array in a loop is a good example. If we access `array[i]` there is a good chance will access `array[i+1]`. Code also exhibits a high degree of spatial locality. If we execute an instruction at the current PC, there is a good chance we will execute instruction at `PC + 4` (the next instruction) unless the instruction at PC is a branch or jump. Spatial locality suggests that when we access a data element we should also load some of that data elements neighbors into the cache at the same time reduce the latency of going to main memory for smaller data element access.
 
 ## Cache Mechanisms
 In order for a cache memory to operate properly it needs to support some basic mechanisms. At a high level, a cache memory will receive a memory address request (memory reference) from the processor. It needs to determine if the data associated with the memory address is in the cache (a hit). If so, the cache needs to respond with the data requested. If the data is not in the cache (a miss) the cache needs to retrieve the data from main memory, populate the cache with this data, and also return the data back to the processor. When the cache retrieves data from memory it needs to find a place in the cache for this data. In many cases, since the cache is much smaller than main memory, the cache will need to remove some existing data in order to bring the new data into the cache. We call the process of choosing which data to remove the **cache replacement policy**. When we select data to be removed or overwritten in the cache, we call this **eviction**. 
@@ -57,7 +57,8 @@ addr = addr_word * 4;
 ```
 
 ## Direct-Mapped Caches
-A direct-mapped cache is considered the simplest form of a cache memory because every memory address maps to a specific physical location in the case. This makes the replacement policy very simple. If the data associated with an address is not in the cache, then you evict the data in the position that the address maps to. 
+
+A direct-mapped cache is considered the simplest form of a cache memory because every memory address maps to a specific physical location in the cache. This makes the replacement policy very simple. If the data associated with an address is not in the cache, then you evict the data in the position that the address maps to. 
 
 The most important aspect of a direct mapped cache is the mapping function. Let's consider a direct mapped cache that can hold 4 words of data:
 ```
@@ -72,6 +73,7 @@ slot_index = addr_word % 4;
 This is a very basic hash function that uses the remainder of the division of the word address by the cache size to determine the position in the cache. Using this mapping function the following word addresses all map to the same cache slot number, slot number 0: 0, 4, 8, 12, 16, etc. Similarly the following word addresses all map to cache slot number 1: 1, 5, 9, 13, 17, etc.
 
 Using the modulo operator is one way to get the slot number based on the cache size. However, we can also use bit manipulation to get the same value.
+
 First, another way to get the word address from a byte address is the following:
 ```
 addr_word = addr >> 2;
@@ -110,7 +112,7 @@ struct cache_slot_st {
 struct cache cache_slot_st[N];
 ```
 
-That is, we could associate the requesting address with the 32 bit word. This technically works, but we don't need the entire byte address to determine if we have a hit. Look at the word addresses that map to slot 0 from above:
+That is, we associate the requesting address with the 32 bit word. This technically works, but we don't need the entire byte address to determine if we have a hit. Look at the word addresses that map to slot 0 from above:
 ```
 dec bin
  0  00000 <-- slot 0
@@ -119,13 +121,14 @@ dec bin
 12  01100 <-- slot 0
 ```
 
-Look at the upper 3 bits for each of these word addresses; 000, 001, 010, 011. They are all unique. While we are only showing 5 bits, all the word address that map to slot 0 will have unique values for the upper bits. We call the unique upper bits the tag.
+Look at the upper 3 bits for each of these word addresses; 000, 001, 010, 011. They are all unique. While we are only showing 5 bits, all the word address that map to slot 0 will have unique values for the upper bits. We call the unique upper bits the **tag**.
+
 We can now view a byte address in the following way for a 64 bit byte address:
 ```
 tag[63:4] slot_index[3:2] byte_offset[1:0]
 ```
 
-The byte_offset are just the lower two bits that we loose when we compute the word address. If we wanted to access a specific byte from a word in the cache, we would need to use the byte_offset.
+The byte_offset is just the lower two bits that we loose when we compute the word address. If we wanted to access a specific byte from a word in the cache, we would need to use the byte_offset.
 
 In addition to the data and tag, we need one other piece of information in every cache slot. Typically when we power up a computer or start a new program, the cache does not have valid data. On power up, the computer zeros out all values in the cache (and other memory elements as well). With the cache zeroed out and without any memory requests, there is no valid data in the cache. However a tag of value 0 and data of value 0 are both legitimate values, so without something else, the cache would return the value zero for a request with tag equal to 0. To accommodate this initialization problem we introduce a valid field to each cache slot. So now, our cache struct looks like this:
  ```
@@ -159,7 +162,8 @@ if (slot.valid == 1 && slot.tag == addr_tag) {
 ```
 
 ## Fully-Associative Caches
-Before describing set-associative caches, it is useful to first understand how fully-associative caches work. In a fully-associative cache, an address can map to any cache slot, not just one like in the direct-mapped cache. In a direct-mapped cache it is possible to have cache slots that go unused because no addresses mapped to the unused slots during program execution. This usually does not happen for small caches, but can happen as the size of the cache increases. To avoid a situation which we have unused cache slots a fully associative cache is the most flexible. However, this flexibility comes at a cost. When we get an address request we need to compare the address tag with all the slot tags. In code this requires a loop to check the tag in each cache slot. In hardware this comparison can be done in parallel, but it requires quite a bit of logic to achieve this. While fully-associative caches are too expense for regular cache memory, they are used in very specific situations, such as in hardware support for virtual memory.
+
+Before describing set-associative caches, it is useful to first understand how fully-associative caches work. In a fully-associative cache, an address can map to any cache slot, not just one like in the direct-mapped cache. In a direct-mapped cache it is possible to have cache slots that go unused because no addresses mapped to the unused slots during program execution. This usually does not happen for small caches, but can happen as the size of the cache increases. To avoid a situation in which we have unused cache slots a fully associative cache is the most flexible. However, this flexibility comes at a cost. When we get an address request we need to compare the address tag with all the slot tags. In code this requires a loop to check the tag in each cache slot. In hardware this comparison can be done in parallel, but it requires quite a bit of logic to achieve this. While fully-associative caches are too expense for regular cache memory, they are used in very specific situations, such as in hardware support for virtual memory.
 
 We can use the same structure we did for direct mapped caches:
 ```
@@ -200,11 +204,13 @@ return slot.data;
 ```
 
 On a miss, we need to find a slot to use for the new request. Because an address can map to any slot in the cache, we should first look for an unused cache slot. We can look for the first slot whose valid field is 0, as this means the slot is unused. If all the slots are used (valid) we need a way to choose a slot to evict. A good choice is to pick the slot that has been least recently used. In software we could use a linked list to keep track of recently used slots by moving the currently access slot to the beginning of the list. Over time the least recently used slot will be at the end of the list. Another option is to associate a timestamp with each slot. This could be a logical timestamp like the number of cache references. This value will always increase. Now, each time we access a cache slot, we can set the slot timestamp to the current number of references. To find the least recently used slot, we look for the slot with the lowest (smallest) timestamp, as this will be the slot access least recently compared to all the other slots.
+
 In hardware we can't use a linked list or a full timestamp value. Instead of perfect LRU an approximate form of LRU is used. 
+
 The find_lru_slot() function can first look for an unused slot, then use LRU via timestamps to find the slot to evict.
 
 ## Set Associative Caches
-Direct-mapped caches are simple, but rigid. A fully-associative cache is flexible, but expensive. A set-associative is a compromise between direct and fully associative. The idea is to think about a cache as an array of sets. Now we map an address to a set using a direct mapped approach, but we allow the address to map to any slot in the set. We refer to the number of slots in a set as the number of ways. We refer to a specific set-associative cache as an n-way set associative cache, such as 4-way set associative or 8-way set-associative. 
+Direct-mapped caches are simple, but rigid. A fully-associative cache is flexible, but expensive. A set-associative is a compromise between direct and fully associative. The idea is to think about a cache as an array of sets. Now we map an address to a set using a direct mapped approach, but we allow the address to map to any slot in the set. We refer to the number of slots in a set as the number of **ways**. We refer to a specific set-associative cache as an n-way set associative cache, such as 4-way set associative or 8-way set-associative. 
 
 We can still use the same slot structure for our set-associative cache:
 ```
