@@ -20,8 +20,8 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/NSKjPdWpNwUXiE6HITyRBOIEcx1E
 
 Thu, Oct 5
 : **Lec**{: .label .label-green } RISC-V Emulation Cache Simulation
-: Sec01 - [Recording](),
-          [iPad Notes]()
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/MAgBe4_KNzJtRzhcBKgl1ijf-EUXoEzWAQAN-Q3vG4vjML5C_hMk3BrLltLjuaZ_.ufS7GZRpKySqf5Ud?startTime=1696518668000),
+          [iPad Notes](/notes/CS315-01 2023-10-05 Cache Simulation.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](),
-        [iPad Notes]()
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/K29UQLlfeMFQ_TosEXAQ1nwDxMAQbc_JYo0JRvf0ihyhGgHFUPssDYku8AkgPFDF.sym97_enjwDYBm4H?startTime=1696542234000),
+        [iPad Notes](/notes/CS315-02 2023-10-05 Cache Simulation.pdf)
