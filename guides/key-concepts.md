@@ -95,6 +95,13 @@ permalink: /guides/key-concepts
   - return: `ret`
 - Assembly arguments passed in `a0`, `a1`, `a2`, `a3`, etc.
 - Return value is put into `a0`
+- Basic assembly function
+  ```text
+  .global func_name
+  func_name:
+      add a0, a0, a1
+      ret
+  ```
 - if/then/else in assembly
 - for loops in assembly
 - Array access in assembly
@@ -115,6 +122,49 @@ permalink: /guides/key-concepts
     - They should be restored on exit.
     - The stack pointer is preserve by subtracting (stack allocation) on function entry and adding (stack deallocation) on function exit the name number of bytes.
     - The `sp` should be a multiple of 16 (for performance compatibility with some instructions)
+- Functions that don't call other functions do not need to allocate stack space.
+  - Only need stack space if the function uses caller-saved registers
+- Function call template when using stack:
+  ```text
+  .global func_name
+  func_name:
+      addi sp, sp, -N    # Allocate N bytes on stack, N must be a multiple of 16
+      sd ra, (sp)         # Save ra onto stack
+                          # Save any callee-saved registers if needed
+      ...
+      ld ra, (sp)
+      addi sp, sp, +N
+      ret
+  ```
+- Indexed-based array access
+  - Assume `t0` is `int i`, `a0` is base address of array `int arr[]`
+  ```text
+  li t1, 4
+  mul t1, t1, t0
+  add t1, a0, t1
+  lw t2, (t1)
+  ```
+  - Altneratively use a shift instead of multiply
+  ```text
+  slli t1, t0, 2
+  add t1, a0, t1
+  lw t2, (t1)
+- Recursive functions
+  - Nothing special, just that the func calls itself
+  - Same rules apply
+  - Presere any caller-saved registers on stack before the recursive call
+  - Restore any caller-saved registers from stack after the recursive call
+  - If a recursive function simply returns after the recursive call, then it is called *tail recursive* and the recursive call can be turned into a jump.
+ 
+ 
+## Project03 - RISC-V Assembly Language Part 2
+
+- Working with C strings in assembly
+- Use `lb` (load byte) and `sb` (store byte) to access characters in a string
+- Bit manipulation and bitwise operators
+- Zero (0) / One (1)
+  - Other names: unset/set, low/higg, off/on, false/true
+- A byte is 8 bits
   
 
 
