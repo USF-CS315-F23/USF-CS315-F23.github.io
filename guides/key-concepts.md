@@ -120,7 +120,7 @@ permalink: /guides/key-concepts
   - Callee-saved registers (`sp`, `ra`, `s0`, `s1`, ... `s11`)
     - These must be preserved on the stack by the callee, on entry to the function.
     - They should be restored on exit.
-    - The stack pointer is preserve by subtracting (stack allocation) on function entry and adding (stack deallocation) on function exit the name number of bytes.
+    - The stack pointer is preserved by subtracting (stack allocation) on function entry and adding (stack deallocation) on function exit the name number of bytes.
     - The `sp` should be a multiple of 16 (for performance compatibility with some instructions)
 - Functions that don't call other functions do not need to allocate stack space.
   - Only need stack space if the function uses caller-saved registers
@@ -149,6 +149,7 @@ permalink: /guides/key-concepts
   slli t1, t0, 2
   add t1, a0, t1
   lw t2, (t1)
+  ```
 - Recursive functions
   - Nothing special, just that the func calls itself
   - Same rules apply
@@ -165,7 +166,13 @@ permalink: /guides/key-concepts
 - Zero (0) / One (1)
   - Other names: unset/set, low/higg, off/on, false/true
 - A byte is 8 bits
-  
+  ```text
+  msb | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | lsb
+  ```
+  - msb - most significant bit
+  - lsb - least significant bit
+
+   
 
 
     
