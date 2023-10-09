@@ -6,6 +6,8 @@ parent: Guides
 permalink: /guides/cache-memory
 ---
 
+# Cache Memory
+
 ## Overview
 In Computer Science, a cache is construct that is used to speed up access to data. Often data is stored somewhere, say in memory, on the disk, or in a database. To keep the costs of large storage reasonable, access time to the data is slower than what it could be if a more expensive technology was used for the data storage. A cache is designed to be much smaller than the primary data storage, but uses more expensive technology to make access fast. A cache will keep recently accessed data so that future requests for the data are served quickly. Caches can be very effective if the access pattern to data favors recently requested data items and also data items that are physically near one and other. While we are going to focus on cache memory found in computer processors, caches are widely used in other areas of computer systems, including operating system kernels, databases, and cloud computing. This guide will explain cache memory concepts and look at three types of cache memory structures: direct mapped, fully associative, and set associative.
 

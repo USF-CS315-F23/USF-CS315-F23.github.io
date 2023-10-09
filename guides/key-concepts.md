@@ -162,19 +162,103 @@ permalink: /guides/key-concepts
 
 - Working with C strings in assembly
 - Use `lb` (load byte) and `sb` (store byte) to access characters in a string
-- Bit manipulation and bitwise operators
-- Zero (0) / One (1)
-  - Other names: unset/set, low/higg, off/on, false/true
-- A byte is 8 bits
+- Calling C functions from Assembly
+  - Just add a `.global func_name` for the function you want to use
+  - E.g., `.global strlen`
+  - Then set arg registers and use `call` instruction as normal
+  - Make sure to preserve any caller-saved registers before call 
+- Memory
+  - Byte addressable
+  - Smallest addressable unit is a byte (8 bits)
+  - A int (word) is 4 bytes, need to decide how to layout a word in memory
+  - Two byte orderings
+    - Big endian (put the most significant byte first)
+    - Little endian (put the least significant byte first)
+    ```text
+    int x = 0xFFAA1122
+
+    4 |    |   4 |    |
+    3 | 22 |   3 | FF |
+    2 | 11 |   2 | AA |
+    1 | AA |   1 | 11 |
+    0 | FF |   0 | 22 |
+    Big        Little
+    Endian     Endian
+    ```
+- Two's Complement (2's Complement)
+  - Need a way to represent negative integer values
+  - To get the two's complement negative representation of a positive value:
+    - twos = invert_bits(val) + 1
+  - 3-bit two's complement values
   ```text
-  msb | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | lsb
+  Bin Dec
+  000   0
+  001   1
+  010   2
+  011   3
+  100  -4
+  101  -3
+  110  -2
+  111  -1
   ```
-  - msb - most significant bit
-  - lsb - least significant bit
-
-   
-
-
-    
-    
-
+  - Two's complement properties
+    - The msb (most significant bit) is the sign bit (0 is pos, 1 is neg)
+    - Only one representation of 0
+    - Because of this, there is one more neg value than pos values
+    - Simple grade school arithmetic work on two's complement numbers
+- Bit manipulation and bitwise operators
+  - Zero (0) / One (1)
+    - Other names: unset/set, low/higg, off/on, false/true
+  - A byte is 8 bits
+    ```text
+    msb | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | lsb
+    ```
+    - msb - most significant bit
+    - lsb - least significant bit
+  - A word is 4 bytes or 32 bits
+  ```text
+  msb | 31      24|23      16|15       8|7        0| lsb
+      |   byte 3  |  byte 2  |  byte 1  |  byte 0  |
+  ```
+  - Bitwise Operaters (op, C, ASM)
+     - `AND` ,  `&`  , `and/andi`
+     - `OR`  ,  `|`  , `or/ori`
+     - `NOT` ,  `~`
+     - `XOR` ,  `^`  , 
+     - Shift Left Logical
+       - Shift x to the left by n bits
+       - Fill lower bits with 0
+       - `uint32_t x`
+       - `x << n`
+       - `sll/slli`
+     - Shift Right Logical
+       - Shift x to the right by n bits
+       - Fill upper bits with 0
+       - `uint32_t x`
+       - `x >> n`
+       - `srl/srli`
+     - Shift Right Arithmetic
+       - Shift x to the right by n bits
+       - Fill upper bits with sign bit value
+       - `int32_t x`
+       - `x >> n`
+       - `sra/srai`
+  - Masking
+    - It is often need to pull out a sequence of bits from a larger value
+      - To get a sequence of bits:
+      - Shift the bits to the far right
+      - Mask the bits to zero out any upper bits we don't want
+      - Example: assume we want the middle 4 bits of an 8 bit value (bits 2-5)
+      ```text
+      uint8_t x = 0b11011010;
+      uint32_t v = x >> 2     // Shift the 4 bits to the beginning
+      uint32_t v = v & 0b1111 // Mask off upper bits remaining in v
+      ```
+   - Combine individual bit sequences with right shift and OR (`|`)
+   - Sign extension
+     - Assume you have a 4-bit two's complement number you want to sign extend to be a 32-bit two's complement number.
+     ```text
+     int32_t v = 0b1110 // -2 in 4 bits
+     v = (v << 28) >> 28;
+     ```
+     - Shift all the way to the left and then do shift right arithmetic all the way back
