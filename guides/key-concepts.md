@@ -46,7 +46,7 @@ permalink: /guides/key-concepts
 - Command line arguments with `int argc` and `char *argv`
   - Layout of `argv` array in memory
   - Array of pointers first, `argv[0]`, `argv[1]`, `argv[2]`, `NULL (0)`
-  - String arrays second, './foo` + `\0`, `-p` + `\0`, etc.
+  - String arrays second, `./foo` + `\0`, `-p` + `\0`, etc.
 - Parsing command line arguments
 - Number systems
   - Decimal (base 10, digits: `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`)
