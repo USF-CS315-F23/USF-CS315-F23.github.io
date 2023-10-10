@@ -24,7 +24,7 @@ permalink: /guides/key-concepts
   - ssh keys, ssh `config`, ssh `authorized_keys`
   - Shell configuration
     - bash: `~/.profile`, `~/.bash_profile`, `~/.bashrc`, `~/.bash_aliases`
-    - zsh: `~/.zprofile`, `~/.zshrc'
+    - zsh: `~/.zprofile`, `~/.zshrc`
 - C Basics
   - Functions
   - Data (global, stack, heap)
@@ -176,7 +176,6 @@ permalink: /guides/key-concepts
     - Little endian (put the least significant byte first)
     ```text
     int x = 0xFFAA1122
-
     4 |    |   4 |    |
     3 | 22 |   3 | FF |
     2 | 11 |   2 | AA |
@@ -216,10 +215,10 @@ permalink: /guides/key-concepts
     - msb - most significant bit
     - lsb - least significant bit
   - A word is 4 bytes or 32 bits
-  ```text
-  msb | 31      24|23      16|15       8|7        0| lsb
-      |   byte 3  |  byte 2  |  byte 1  |  byte 0  |
-  ```
+    ```text
+    msb | 31      24|23      16|15       8|7        0| lsb
+        |   byte 3  |  byte 2  |  byte 1  |  byte 0  |
+    ```
   - Bitwise Operaters (op, C, ASM)
      - `AND` ,  `&`  , `and/andi`
      - `OR`  ,  `|`  , `or/ori`
@@ -262,3 +261,10 @@ permalink: /guides/key-concepts
      v = (v << 28) >> 28;
      ```
      - Shift all the way to the left and then do shift right arithmetic all the way back
+
+## Lab03 - RISC-V Machine Code Emulation
+
+- RISC-V Instruction Formats
+  - R-type `|funct7[31:25]|rs2[24:20]|rs1[19:15]|funct3[14:12]|rd[11:7]|opcode[6:0]|`
+    - For register instructions like `add`, `sub`, `sll`
+  - I-type `|imm_11_5[31:20]|rs1[19:15]|funct3[14:12]|rd[11:7]|opcode[6:0]|`
