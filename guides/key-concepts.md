@@ -18,7 +18,7 @@ permalink: /guides/key-concepts
 
 ## Project01 - RISC-V Access and Number Conversion in C
 
-- Dev environment setup
+- Dev Environment Setup
   - Local VM using qemu-system-riscv64
   - Remote VM on euryale
   - ssh keys, ssh `config`, ssh `authorized_keys`
@@ -42,6 +42,7 @@ permalink: /guides/key-concepts
     - ASCII character codes
   - The C stack
     - Local variables
+    - Allocated on function entry, deallocated on function exit (return)
   - Signed (int, int32_t) vs unsigned (unsigned int, uint32_t) values
 - Command line arguments with `int argc` and `char *argv`
   - Layout of `argv` array in memory
@@ -264,7 +265,113 @@ permalink: /guides/key-concepts
 
 ## Lab03 - RISC-V Machine Code Emulation
 
+- RISC-V Machine Code and Emulation
+  - Instructions are 32 bits (1 word), there is also a 16 bit compressed format
+  - Each instruction encodes source register(s), a destination registers, and target address or offset
+  - We  decode the `iw` (instruction word) in steps
+      - Look at `opcode` to determine instruction format type
+      - Decode the `iw` based on opcode
+      - Further decode `iw` by looking at other fields such as `funct3` and `funct7`
+  - The base RISC-V emulator includes the emulated state as a struct:
+  ```text
+  struct rv_state {
+      uint64_t regs[NREGS];
+      uint64_t pc;
+      uint8_t stack[STACK_SIZE];
+  };
+  ```
+    - `NREGS` is 32 (because RISC-V has 32 registers)
+    - The `pc` is the program counter
+    - `STACK_SIZE` is 8192, but for prorgrams with lots of function calls and/or local vars this may need to be bigger.
+  - Basic emulation
+    - We will emulate assembly programs that have been linked with the emulator code
+    - Initialize the `rv_state` with
+      - A pointer to the function we want to emulate
+      - The first 4 arguments as uint64_t values to send to the function
+    - Get `iw`: `iw = *pc`
+    - Get `opcode` from `iw`
+    - Based on `opcode` call emulation function, like:
+      - `emu_r_type(rsp, iw)`
+      - `rsp` is `struct rv_state *rsp`
+    - The emu functions will further decode the `iw`
+      - Use shift and mask (`get_bits()`) to get each field
+      - Update the state (registers and memory based on `opcode`, `funct3`, and `funct7`)
+      - Update the `pc`, usually `pc += 4` to go to the next instruction
+        - For control instructions, we will compute either an `offset` and add to `pc`
+        - Or, for `jalr` use a register value to update the `pc`
 - RISC-V Instruction Formats
   - R-type `|funct7[31:25]|rs2[24:20]|rs1[19:15]|funct3[14:12]|rd[11:7]|opcode[6:0]|`
     - For register instructions like `add`, `sub`, `sll`
-  - I-type `|imm_11_5[31:20]|rs1[19:15]|funct3[14:12]|rd[11:7]|opcode[6:0]|`
+  - I-type `|imm_11_0[31:20]|rs1[19:15]|funct3[14:12]|rd[11:7]|opcode[6:0]|`
+    - For immediate instruction like `addi`, `slli`, `lw`, `lb`
+    - Immediate must be constructed from parts and sign extended
+    - `int64_t imm = sign_extend(imm_11_0, 11)`
+  - B-type `|imm_12[31]|imm_10_5[30:25]|rs2[24:20]|rs1[19:15]|funct3[14:12]|imm_4_1[11:8]|imm_11[7]|opcode[6:0]|`
+    - For branches, like `beq`, `bne`, `blt`, `bge`
+    - `int64_t imm = sign_extend(imm_12 << 12 | imm_11 << 11 | imm_10_5 << 5 | imm_4_1 << 1)`
+    - If branch taken `pc += imm`, if not taken `pc += 4`
+  - J-type `|imm_20[31]|imm_10_1[30:21]|imm_11[20]|imm_19_12[19:12]|rd[11:7]|opcode|`
+    - For 'jal' jump and link, also 'j'
+    - `int64_t imm = sign_extend(imm_20 << 20 | imm_19_12 << 12 | imm_11 < 11 | imm_10_1 << 1)`
+    - `pc += imm`
+- RISC-V Pseudo Instructions
+  - The assembler provide many convenience instructions that do not exist as real instructions
+  - Examples
+    - `li a0, 99` is `addi a0, zero, 99`
+    - `j offset` is `jal zero, offset`
+    - `call offset` is `jal ra, offset`
+    - `bgt r1, r2, offset` is `blt r2, r1, offset`
+
+## Project04 - RISC-V Emulation - Analysis - Cache Simulation
+
+- Additional RISC-V Instruction Formats
+  - S-type `|imm_11_5[31:25]|rs2[24:20]|rs1[19:15]|funct3[14:12]|imm_4_0[11:7]|opcode[6:0]|`
+    - For store instuctions, like `sb`, `sw`, `sd`
+    - Immediate must be constructed from parts and sign extended
+    - `int64_t imm = sign_extend(imm_11_5 << 5 | imm_4_0, 11)`
+  - U-type `|imm_31_12[31:12]|rd[11:7]|opcode[6:0]|`
+    - For `lui` (load upper immediate) and `auipc` add upper immediate to pc
+    - Our code dosn't use these
+- Note that load instructions are an I-type form
+- Dynamic Analysis
+  - Because we emulate each instruction we can do the following
+    - Count the total number of instructions executed
+    - Count the different types of instructions executed
+      - I/R count, Loads, Stores, Jumps, Branches Taken, Branches Not Taken
+    - Counts added to `struct rv_state` as a new struct `struct rv_analysis`
+    - Need to update counts accurately in the emulation functions
+- Cache Memory and Simulation
+  - A Cache is a small and fast memory that holds recently accessed data from main memory
+  - Main memory is slow relative to CPU speed
+  - A cache can work because program exeuction adheres to two principles of locality
+    - Principle of spatial locality - If code accesses a value, there is good chance it will access nearby values
+    - Principle of temporal locality - If code accesses a value now there is a good chance it will do so again soon
+  - We send an address to a cache an request a value back
+    - Hit - value is in the cache for the requested address
+    - Miss - value is not in the cache for the requested address
+    - Hit Rate = #hits / #refs
+    - Miss Rate = #misses / #refs
+    - In modern processes caches can achieve very high hit rates, > 95%
+  - Main cache ideas
+    - For a given memory address, how to locate value in the cache?
+    - How to replace a value?
+    - How many bytes do we load at at time into the cache (block size)?
+  - Three main cache designs
+    - Direct Mapped
+    - Fully Associative
+    - Set Associative
+  - Direct Mapped
+    - Each address maps to one slot in the cache
+    - On miss, just repace slot value with new value from memory
+  - Fully Associative
+    - Each address can map to any slot in the cache
+    - Use a form of LRU (least recently used) to choose which slot to evict on miss
+  - Set Associative
+    - An address maps to a set of slots, and can map to any slot in the set
+    - Use LRU within the slots in a set to choose a slot to evict
+  - Block Size
+    - To support spatial locatlity a cache will read in more than the word requested
+    - We can think of memory as an array of blocks
+    - We need to find the block for a give address
+    - Find the base of the block
+    - The load the entire block into the cache slot
