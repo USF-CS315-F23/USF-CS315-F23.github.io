@@ -18,6 +18,6 @@ Thu, Oct 19
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/YT9fuRCWGGUezYV2QzeyF_rtM5f5DAeJOq0Vxfv7adUt1C15V-VqlrqfHMOWAcVa.NZ8IO0yWTKGtKIR1?startTime=1697728364000),
           [iPad Notes](/notes/CS315-01 2023-10-19 Combinational Logic.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](),
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/qvRtBd_1lj4w31TKdp3D06hD5DKI-JS45wCNLkBCXo99Mk7KYSuiF2XRBkLHVrWS.qf9ubSNSV6C9uEap?startTime=1697751954000),
         [iPad Notes](/notes/CS315-02 2023-10-19 Combinational Logic.pdf)
 
