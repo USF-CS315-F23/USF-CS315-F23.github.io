@@ -3,7 +3,7 @@ layout: default
 title: Project05
 nav_order: 9
 parent: Assignments
-permalink: /assignments/project04
+permalink: /assignments/project05
 ---
 
 # RISC-V Static Analysis Circuit
