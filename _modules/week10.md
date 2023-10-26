@@ -16,11 +16,11 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/3GSVAd2Rvd6irhNnXTawh_omcf8Z
 
 Wed, Oct 25
 : **Lab**{: .label .label-purple } Latches - FlipFlops - Registers
-: Sec01 - [Recording](),
-          [iPad Notes](/notes/)
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/sU7S3ubkTaJJpIYFsDRwJjmnr38m6HjqFB3HWFlWqoEGG8yLHH6blFRuksnx3CTP.ve-j65aJ5th7utaO?startTime=1698277888000),
+          [iPad Notes](/notes/CS315-01 2023-10-25 Lab Latches FlipFlops Registers.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](),
-        [iPad Notes](/notes/)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/vF0RSh7Nhv-2upDmjHedUh1TNecwkTFpSoKkXWVXBxKlRJHg9wuJB3sCWjKGpPIj.tQuH7n8PT1JTHbj_?startTime=1698283848000),
+        [iPad Notes](/notes/CS315-02 2023-10-25 Lab Latches FlipFlops Registers.pdf)
 
 Thu, Oct 26
 : **Lab**{: .label .label-green } Counters - ROMs
