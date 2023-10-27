@@ -23,10 +23,10 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/vF0RSh7Nhv-2upDmjHedUh1TNecw
         [iPad Notes](/notes/CS315-02 2023-10-25 Lab Latches FlipFlops Registers.pdf)
 
 Thu, Oct 26
-: **Lab**{: .label .label-green } Counters - ROMs
-: Sec01 - [Recording](),
-          [iPad Notes](/notes/)
+: **Lab**{: .label .label-green } ROMs - Encoders - Decoders
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/bub7D8mqULw_HqDSBFvxJoXcJ6s9t8fWuqGWDLjCC0cWWWbMblTSy_uEGjF61WXe.gB12jFBSiCCbGr82?startTime=1698332903000),
+          [iPad Notes](/notes/CS315-01 2023-10-26 ROMs Decoders Encoders.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](),
-        [iPad Notes](/notes/)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/twQ1Maibd74F_zWtHVEr3AVUNVzwJAk8OaMNXFmfJ6TCQwb5dN23Ffgk9nVtUj8c.g9XbHaI325egX6v0?startTime=1698356941000),
+        [iPad Notes](/notes/CS315-02 2023-10-26 ROMs Decoders Encoders.pdf)
 
