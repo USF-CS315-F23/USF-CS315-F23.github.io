@@ -21,7 +21,7 @@ baseurl: '/' # the subpath of your site, e.g. /blog
 #url: 'https://usf-cs315-f23.github.io' # the base hostname & protocol for your site, e.g. http://example.com
 url: 'https://cs315-f23.cs.usfca.edu' # the base hostname & protocol for your site, e.g. http://example.com
 
-exclude: ["Gemfile", "Gemfile.lock", "LICENSE"]
+exclude: ["Gemfile", "Gemfile.lock", "LICENSE", "guides/content"]
 
 logo: "/assets/images/usfcs_logo.png"
 
