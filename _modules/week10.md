@@ -3,7 +3,7 @@ title: Week10
 ---
 
 Mon, Oct 23
-: **Lab03 due**{: .label .label-red } 11:59pm
+: **Lab04 due**{: .label .label-red } 11:59pm
 
 Tue, Oct 24
 : **Lec**{: .label .label-green } Components and Sequential Logic
