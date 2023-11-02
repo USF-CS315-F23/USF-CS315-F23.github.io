@@ -29,7 +29,7 @@ In summary you need to implement:
         `sub t0, t0, t1` resulting in `T0` = 0
 1. Your ALU should be able to subtract A - B and calculate the correct result
 1. For the autograder to test the four cases above:
-    1. Your main circuit must be named `lab06.dig`, have inputs named `CLK`, `CLR`, `RR0`, `RR1`, `WR`, `WE`, `ALUSrcB`, `ALUOp`, and `Imm`, and outputs named `T0` and `T1`
+    1. Your main circuit must be named `lab05.dig`, have inputs named `CLK`, `CLR`, `RR0`, `RR1`, `WR`, `WE`, `ALUSrcB`, `ALUOp`, and `Imm`, and outputs named `T0` and `T1`
     1. Your `ALU` must be named `alu.dig`, have inputs named `A`, `B`, and `ALUOp`, and an output named `R`
 
 ## Given
