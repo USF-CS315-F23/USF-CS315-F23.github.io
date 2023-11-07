@@ -8,6 +8,8 @@ permalink: /assignments/lab05
 
 # Processor Design Part 1
 
+## Circuits due Mon Nov 6th by 11:59pm in your Lab05 GitHub Repo
+
 ## Requirements
 For this lab you should implement all the components and the top-level partial processor circuit described in the [Processor Guide Part 1](/guides/processor-part-1.html) with the following exceptions: the Extender and Data Memory for this lab.
 In summary you need to implement:
