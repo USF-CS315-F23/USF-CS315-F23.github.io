@@ -12,7 +12,7 @@ permalink: /assignments/lab06
 
 ## Requirements
 
-1. For this lab, please use an incremental development approach and commit two top-level circuits: `lab07-part1.dig` and `lab07-part2.dig`. 
+1. For this lab, please use an incremental development approach and commit two top-level circuits: `lab06-part1.dig` and `lab06-part2.dig`. 
 1. Each top-level circuit should contain its own decoder circuit to identify instructions and propagate the appropriate control signals. 
 1. For this lab you will combine your work from lab05 with a new implementation of the control lines as described in the [Processor Guide Part 2](/guides/processor-part-2.html)
 1. Use the spreadsheet approach to develop a decoder table that associated inputs (opcode, funct3, funct7, and funct6) with decoder outputs (`RFW`, `ALUOp`, etc.).
