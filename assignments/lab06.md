@@ -8,6 +8,8 @@ permalink: /assignments/lab06
 
 # Processor Design Part 2
 
+## Circuits due Mon Nov 13th by 11:59pm in your Lab06 GitHub Repo
+
 ## Requirements
 
 1. For this lab, please use an incremental development approach and commit two top-level circuits: `lab07-part1.dig` and `lab07-part2.dig`. 
