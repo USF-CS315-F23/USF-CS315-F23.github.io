@@ -12,7 +12,7 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/9BsxrXGDyD225X-dNrgqfr-F5AsW
         [iPad Notes](/notes/CS315-02 2023-09-05 Project01 RISCV Assembly.pdf)
 
 Wed, Sep 6
-: Project01 Interactive Grading - No Labs
+: **Project01 INTERACTIVE GRADING**{: .label .label-red } - No Labs
 
 Thu, Sep 7
 : **Lec**{: .label .label-green } RISC-V Assembly - args - arrays - if/else - loops

@@ -23,7 +23,7 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/5VCR3CrNdHyFkpzhT4-iFzufd6cs
         [iPad Notes](/notes/CS315-02 2023-11-01 Lab Processor ALU Design.pdf)
 
 Thu, Oct 26
-: **Lab**{: .label .label-green } Instruction Decoding
+: **Lab**{: .label .label-green } Processor Decoding
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/oaIADjt7OrasqXI_RmpSyavzBGxUWBrjUQs2MNZnNAPo6jpMR_MZQMHaZEf0TRXM.ApRcKzEYRYhas8yO?startTime=1698937745000),
           [iPad Notes](/notes/CS315-01 2023-11-02 Processor Decoding.pdf)
 &nbsp; &nbsp;
