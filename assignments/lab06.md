@@ -17,6 +17,7 @@ permalink: /assignments/lab06
 1. For this lab you will combine your work from lab05 with a new implementation of the control lines as described in the [Processor Guide Part 2](/guides/processor-part-2.html)
 1. Use the spreadsheet approach to develop a decoder table that associated inputs (opcode, funct3, funct7, and funct6) with decoder outputs (`RFW`, `ALUOp`, etc.).
 1. You must have inputs for `CLK`, `EN`, `CLR`, and `PROG`, and outputs for `A0`, `A1`, `A2` and `DONE`
+1. Submit all your `.dig` files, `.s` and `.hex` files, and a PDF of your instruction decoder spreadsheet. 
 
 ## Part 1
 
