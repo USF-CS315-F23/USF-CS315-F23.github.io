@@ -47,7 +47,7 @@ permalink: /assignments/project06
 
 ## Tests
 
-See the tests repo for Project06.
+See the tests repo for Project06. You will have to copy the inst-mem.dig file from the Projec06 test repo to your project06 repo.
 
 ## Rubric
 
