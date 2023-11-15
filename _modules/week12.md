@@ -14,7 +14,7 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/wF3Fn8uaOBZwY_d7_Q7_v-NffOwB
         [iPad Notes](/notes/CS315-02 2023-11-07 Instruction Decoding Control.pdf)
 
 
-Wed, Oct 25
+Wed, Nov 8
 : **Lab**{: .label .label-purple } Processor JAL JALR
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/alptNhy2TW9WcqL8bBkWgHxS30aGLIUR_-yyQoitJqhC0XVtVtdC33YZyc8gvmLZ.xZJZT-vleUUrETNB?startTime=1699491892000),
           [iPad Notes](/notes/CS315-01 2023-11-08 Lab JAL JALR.pdf)
@@ -22,7 +22,7 @@ Wed, Oct 25
 Sec02 - [Recording](https://usfca.zoom.us/rec/share/lNLyQarLH7YuwFgxgmCjRIHAqy1zIRPc3TcvH39ARdcdnQgoS3JrVMMdoOJRwQQ5.i2f8vCKfFlSWoOa8?startTime=1699497087000),
         [iPad Notes](/notes/CS315-02 2023-11-08 Lab JAL JALR.pdf)
 
-Thu, Oct 26
+Thu, Nov 9
 : **Lab**{: .label .label-green } Processor Branches Data Mem
 : Sec01 - [Recording](https://usfca.zoom.us/rec/share/F3hP7FVh_4N1Dc3H8VWYQU5Uip3hVXS_EVVcfr4Ym030Ox8U8dqRURHnk41k_Pxu.Ac4dybwwgMe1bspy?startTime=1699546118000),
           [iPad Notes](/notes/CS315-01 2023-11-09 Branches Data Memory.pdf)
