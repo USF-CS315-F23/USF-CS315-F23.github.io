@@ -15,12 +15,12 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/E0bOFerMMDZIUfOxOFGr-tU4HejD
 
 
 Wed, Oct 25
-: **Lab**{: .label .label-purple } Data Mem and Tests
-: Sec01 - [Recording](),
-          [iPad Notes](/notes/)
+: **Lab**{: .label .label-purple } Tests and Data Mem
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/TrlXsTlMLV6rnYxkRgK7Wdvn3iZ6m7cjSG7z1CHHC7jVmY6li5BqMIHYuLTcs0xc.u1V7m36qLK2OABZ1?startTime=1700096341000),
+          [iPad Notes](/notes/CS315-01 2023-11-15 Lab Project06 Tests.pdf)
 &nbsp; &nbsp;
-Sec02 - [Recording](),
-        [iPad Notes](/notes/)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/gmshePSxmTB14uMlTAAsW2UqXI6Wm0SJLBDmJ9grqsrI-gG8XBZpktZUHIc7aE9w.00AOnyhClGm_KqQx?startTime=1700102122000),
+        [iPad Notes](/notes/CS315-02 2023-11-15 Lab Project06 Tests.pdf)
 
 Thu, Oct 26
 : **Lab**{: .label .label-green } Project06 Q&A
