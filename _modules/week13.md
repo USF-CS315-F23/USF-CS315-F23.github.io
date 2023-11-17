@@ -23,9 +23,8 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/gmshePSxmTB14uMlTAAsW2UqXI6W
         [iPad Notes](/notes/CS315-02 2023-11-15 Lab Project06 Tests.pdf)
 
 Thu, Oct 26
-: **Lab**{: .label .label-green } Project06 Q&A
-: Sec01 - [Recording](),
-          [iPad Notes](/notes/)
+: **Lab**{: .label .label-green } Project06 Debug Q&A
+: Sec01 - [Recording](https://usfca.zoom.us/rec/share/31uH1pCGwcYiMJ8DXuiXoXBDqwlW7bhVrVAL4OhrifYX_WkL9iuDRIbinfe_eYeN.teED3e0k0UWPxXVG?startTime=1700150851000),
 &nbsp; &nbsp;
-Sec02 - [Recording](),
-        [iPad Notes](/notes/)
+Sec02 - [Recording](https://usfca.zoom.us/rec/share/8PvTKWnrOA_J-k9KGk3wkGBXvv_jVslSLgKKfhXg1SgIePSDlwZPDNU0d3QXGz7m.AeLvJw4Bg0Q2j198?startTime=1700175093000)
+
