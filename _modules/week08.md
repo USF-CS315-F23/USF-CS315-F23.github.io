@@ -11,7 +11,7 @@ Sec02 - [Recording](https://usfca.zoom.us/rec/share/ZZYALBUBKfSM1U4gH_ZGfdR_RRcH
         [iPad Notes](/notes/CS315-02 2023-10-10 Project04 Midterm.pdf)
 
 Wed, Oct 11
-: **Project04 Interactive Grading**{: .label .label-red } 11:59pm
+: **Project04 Interactive Grading**{: .label .label-red }
 
 Thu, Oct 12
 : **Midterm**{: .label .label-red } 11:59pm
