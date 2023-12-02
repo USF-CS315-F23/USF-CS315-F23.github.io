@@ -35,18 +35,56 @@ main:
 ```
 This program illustrates a Data Hazard, since `a0` depends on the Writeback stage of the two immediate-form `li` (`addi`) instructions. Your Hazard Unit will enable Register Forwarding so that the values of `a1` and `a2` are available when the `add` instruction begins the Execute stage.
 
+This test requires the implementation of forwarding from the MEM and WB stages to the EX stage if a instructions in these stages are going to write to RD0 or RD1. Here is is an outline of what is needed:
+
+- New datapath lines that connect ALUR_3 and the MR_4 MUX output to two new MUXex in the EX stage.
+- There will be two EX MUXes. One for RD0 and one for RD1.
+  - That is the RD0 from the DR/EX registers will go to the MUX and the output of the MUX will go to all the inputs where RD0 was original connected. Same for RD1.
+- The RD0 MUX will have three inputs: RD0, ALUR_3, and MR_4 and the selector is called FRD0.
+- The RD1 MUX will have three inputs: RD1, ALUR_3, and MR_4 and the seledtor is called FRD1.
+- The logic in the Hazard Unit for for FRD0, looks like this:
+  ```
+  if ((RR_2 == WR_3) && (RFW_3)) {
+      FRD0 = 1;
+  } else if ((RR_2 == WR_4) && (RFW_4)) {
+      FRD0 = 2;
+  } else {
+      FRD0 = 0;
+  }
+  ```
+
 **05-ld-stl.s**
 
 ```
 main:
     li a0, 0
     li a1, 1
-    sw a1, (a0)
-    lw a2, (a0)
+    sd a1, (a0)
+    ld a2, (a0)
     addi a0, a2, 1   # a0 should be 2
     unimp            # marker instruction
 ```
-This program illustrates the need to Stall the pipeline, since the addi instruction depends on the value loaded by the `lw` instruction. Your Hazard Unit will enable a Stall in the appropriate Pipeline Registers.
+This program illustrates the need to Flush the EX/MEM registers and Stall the pipeline, since the addi instruction depends on the value loaded by the `ld` instruction. Your Hazard Unit will enable a Stall in the appropriate Pipeline Registers.
+
+Here is an outline of the implementation:
+
+- We need to be able to flush the EX/MEM register so that we don't propogate the instruction in the EX stage. Essentially we need to insert a NOP. To do this, we can just set the CLR input to the EX/MEM registers to 1.
+- We need to stall all the instructions in EX, DR, and IF:
+  - We just need to disable (set enable to 0) on the DR/EX registers, IF/DR registers, and the PC.
+- Here is the logic we need in the Hazard Unit:
+  ```
+  if ((RFW_3 == 1) && (MLD_3 == 1) && ((RR0_2 == WR_3) || (RR1_2 == WR_3))) {
+      PC_EN = 0;
+      IF_DR_EN = 0;
+      DR_EX_EN = 0;
+      EX_MEM_CLR = 1;
+  } else {
+      PC_EN = EN_ORG;
+      IF_DR_EN = 1;
+      DR_EX_EN = 1;
+      EX_MEM_CLR = CLR_ORG;
+  }
+  ```
 
 **06-jal-fls.s**
 
@@ -59,7 +97,22 @@ foo:
     addi a0, a0, 4  # a0 should be 6
     ret
 ```
-This program illustrates a Control Hazard. Since the `jal` instruction means that subsequent instructions (the marker) should not be executed, we need to Flush the pipeline.
+This program illustrates a Control Hazard. Since the `jal` instruction means that subsequent instructions (the marker) should not be executed, we need to update the PC in the EX stage and flush the pipeline upto EX.
+
+Here is an outline of the implementation:
+
+- The second input to the PCBr MUX should come from the ALU Result in the EX stage (not from the MR_4 MUX.
+- The PCBr MUX selector should come from PCbr_2, not PCbr_4.
+- The Hazard Unit need the following logic to Flush IF/DR and DR/EX:
+  ```
+  if (PCbr_2 == 1) {
+     IF_EX_CLR = 1;
+     EX_DR_CLR = 1;
+  } else {
+     IF_EX_CLR = CLR_ORG;
+     EX_DR_CLR = CLR_ORG;
+  }
+  ```
 
 ## Given
 
@@ -80,3 +133,7 @@ This program illustrates a Control Hazard. Since the `jal` instruction means tha
 - 10 pts: passes the `05-ld-stl` test case 
 - 10 pts: passes the `06-jal-fls` test case
 
+
+## Extra Credit
+
+- (10 points) Get all the Project06 tests to run on your Project07 pipelined processor.
