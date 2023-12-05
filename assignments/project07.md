@@ -44,9 +44,9 @@ This test requires the implementation of forwarding from the MEM and WB stages t
 - The RD1 MUX will have three inputs: RD1, ALUR_3, and MR_4 and the seledtor is called FRD1.
 - The logic in the Hazard Unit for for FRD0, looks like this:
   ```
-  if ((RR_2 == WR_3) && (RFW_3)) {
+  if ((RR0_2 == WR_3) && (RFW_3)) {
       FRD0 = 1;
-  } else if ((RR_2 == WR_4) && (RFW_4)) {
+  } else if ((RR0_2 == WR_4) && (RFW_4)) {
       FRD0 = 2;
   } else {
       FRD0 = 0;

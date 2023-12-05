@@ -10,7 +10,7 @@ permalink: /assignments/project05
 
 ## Circuits due Mon Oct 30th by 11:59pm in your Project05 GitHub Repo
 
-## There is not interactive grading for Project05
+## There is no interactive grading for Project05
 
 ## I will add Exam problems to Project05
 
@@ -55,10 +55,3 @@ Partial Top-level Circuit Image
 
 ![project05](project05.png)
 
-## Exam-like Problems
-
-Put the solutions to the following problems in a file called `problems.pdf` in your Project05 GitHub Repo. You can
-typeset your solutions or you can write your solutions by hand and scan or take a photo of your work. Just be sure
-to put your solution in a single file called `problems.pdf`.
-
-**TBD**
