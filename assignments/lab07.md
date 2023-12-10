@@ -3,7 +3,7 @@ layout: default
 title: Lab07
 nav_order: 14
 parent: Assignments
-permalink: /assignments/lab06
+permalink: /assignments/lab07
 ---
 
 # Exam-like Problems
